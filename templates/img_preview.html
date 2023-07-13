@@ -1,0 +1,28 @@
+<img
+  src="{% if src %}{{ src }}{% else %}http://atrilco.com/wp-content/uploads/2017/11/ef3-placeholder-image.jpg{% endif %}"
+  id="image-thumbnail-{{ field_name }}"
+>
+
+<script>
+  function changeThumbnail() {
+    const fieldName = "{{ field_name }}";
+    document
+      .getElementById(`${fieldName}`)
+      .addEventListener("change", function (e) {
+        console.log('file changed')
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          document.getElementById(`image-thumbnail-${fieldName}`).src = e.target.result;
+        };
+        reader.readAsDataURL(this.files[0]);
+      });
+  }
+  function docReady(fn) {
+    if (document.readyState === "complete" || document.readyState === "interactive") {
+      setTimeout(fn, 1);
+    } else {
+      document.addEventListener("DOMContentLoaded", fn);
+    }
+  }
+   docReady(changeThumbnail);
+</script>
