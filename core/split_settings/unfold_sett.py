@@ -113,7 +113,7 @@ COLORS = {
 
 UNFOLD = {
     "SITE_TITLE": "Admin",
-    "SITE_HEADER": "ADMINISTRATION",
+    "SITE_HEADER": "Django Manager",
     # "SITE_URL": "/",
     "SITE_ICON": lambda request: static("admin/logo.svg"),
     "SITE_SYMBOL": "speed",  # symbol from icon set
