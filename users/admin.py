@@ -39,4 +39,6 @@ class UserProfileAdmin(ModelAdmin):
 
     @display(description="avatar")
     def list_display_avatar(self, obj):
+        if not obj.avatar:
+            return mark_safe(f"<img src='http://atrilco.com/wp-content/uploads/2017/11/ef3-placeholder-image.jpg' width='50' height='50' />")
         return mark_safe(f"<img src='{obj.avatar.url}' width='50' height='50' />")
